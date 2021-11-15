@@ -21,13 +21,38 @@ public class UsuarioDTO {
 	public UsuarioDTO(Usuario usuario) {
 		this.id = usuario.getId();
 		this.nome = usuario.getNome();
-		this.setSobrenome(usuario.getSobrenome());
+		this.sobrenome = usuario.getSobrenome();
+		this.usuario = usuario.getUsuario();
 	}
 
 	public Usuario toEntity() {
 		ModelMapper modelMapper = new ModelMapper();
 		Usuario entity = modelMapper.map(this, Usuario.class);
 		return entity;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getSobrenome() {
@@ -37,5 +62,8 @@ public class UsuarioDTO {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
+
+	
+	
 }
 

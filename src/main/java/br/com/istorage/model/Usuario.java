@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_funcionarios")
+@Table(name = "tb_USUARIOS")
 @Entity
 public class Usuario {
 
@@ -29,16 +29,16 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_seq_id")
 	@SequenceGenerator(sequenceName = "usuario_seq_id", name = "usuario_seq_id", allocationSize = 1)
 	private int id;
-	
+
 	@Column(name = "usuario")
 	private String usuario;
-	
+
 	@Column(name = "NOME")
 	private String nome;
-	
+
 	@Column(name = "SOBRENOME")
 	private String sobrenome;
-	
+
 	@Column(name = "SENHA")
 	private String senha;
 
@@ -49,8 +49,6 @@ public class Usuario {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 
 	public String getUsuario() {
 		return usuario;
@@ -83,13 +81,13 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
 	public UsuarioSenhaDTO toSenhaDTO() {
 		ModelMapper modelMapper = new ModelMapper();
 		UsuarioSenhaDTO entity = modelMapper.map(this, UsuarioSenhaDTO.class);
 		return entity;
 	}
-	
+
 	public UsuarioDTO toDto() {
 		ModelMapper modelMapper = new ModelMapper();
 		UsuarioDTO entity = modelMapper.map(this, UsuarioDTO.class);
