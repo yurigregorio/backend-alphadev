@@ -19,7 +19,7 @@ public class UsuarioService {
 	//@Autowired
 	//public BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public Usuario salvarUsuario(UsuarioSenhaDTO usuario) {
+	public Usuario salvarUsuario(Usuario usuario) {
 		Usuario user = usuario.toEntity();
 			return this.usuarioRepository.save(user);
 	}

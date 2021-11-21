@@ -30,7 +30,7 @@ public class Usuario {
 	@SequenceGenerator(sequenceName = "usuario_seq_id", name = "usuario_seq_id", allocationSize = 1)
 	private int id;
 
-	@Column(name = "usuario")
+	@Column(name = "usuario", unique = true)
 	private String usuario;
 
 	@Column(name = "NOME")
@@ -91,6 +91,12 @@ public class Usuario {
 	public UsuarioDTO toDto() {
 		ModelMapper modelMapper = new ModelMapper();
 		UsuarioDTO entity = modelMapper.map(this, UsuarioDTO.class);
+		return entity;
+	}
+
+	public Usuario toEntity() {
+		ModelMapper modelMapper = new ModelMapper();
+		Usuario entity = modelMapper.map(this, Usuario.class);
 		return entity;
 	}
 

@@ -1,7 +1,5 @@
 package br.com.istorage.model;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,8 +36,8 @@ public class Estoque {
 	@Column(name = "UNIDADE")
 	public String unidade;
 
-	@Column(name = "DATA_VALIDADE")
-	public Date validade;
+//	@Column(name = "DATA_VALIDADE")
+//	public Date validade;
 
 	@ManyToOne
 	@JoinColumn(name = "PRODUTO_ID")
@@ -73,13 +71,13 @@ public class Estoque {
 		this.unidade = unidade;
 	}
 
-	public Date getValidade() {
-		return validade;
-	}
-
-	public void setValidade(Date validade) {
-		this.validade = validade;
-	}
+//	public Date getValidade() {
+//		return validade;
+//	}
+//
+//	public void setValidade(Date validade) {
+//		this.validade = validade;
+//	}
 
 	public Produto getProduto() {
 		return produto;

@@ -1,19 +1,24 @@
 package br.com.istorage;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-@SpringBootApplication
-public class IStorageApplication implements CommandLineRunner {
-	
+@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
+public class IStorageApplication {
+
 	public static void main(String[] args) {
-		SpringApplication.run(IStorageApplication.class, args);
+		SpringApplication.run(IStorageApplication.class, args); 
 	}
-	
-	@Override
-	public void run(String... args) throws Exception {
-		
+
+	@Bean
+	public PasswordEncoder getPasswordEncoder() {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+		return encoder;
 	}
 
 }
